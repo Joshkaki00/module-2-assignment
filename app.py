@@ -142,6 +142,7 @@ def horoscope_results():
     lucky_number = random.randint(1, 99)
 
     context = {
+        'user_name': request.args.get("users_name"),
         'horoscope_sign': horoscope_sign,
         'personality': users_personality, 
         'lucky_number': lucky_number
@@ -151,4 +152,4 @@ def horoscope_results():
 
 if __name__ == '__main__':
     app.config['ENV'] = 'development'
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
