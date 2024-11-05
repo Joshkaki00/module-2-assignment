@@ -4,11 +4,9 @@
         <title>Horoscope Results</title>
     </head>
     <body>
-        <!-- Your HTML code goes here! -->
-
-        
-
-        
-        
+        <h1>Hello, {{ user_name }}!</h1>
+        <p>Your horoscope sign is: <strong>{{ horoscope_sign }}</strong></p>
+        <p>Personality: {{ HOROSCOPE_PERSONALITIES[horoscope_sign] }}</p>
+        <p>Your lucky number is: <strong>{{ lucky_number }}</strong></p>
     </body>
 </html>
