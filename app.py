@@ -33,23 +33,44 @@ def show_froyo_results():
 @app.route('/favorites')
 def favorites():
     """Shows the user a form to choose their favorite color, animal, and city."""
-    pass
+    return """
+    <form action="/favorites_results" method="GET">
+        What is your favorite color?
+        <input type="text" name="color">
+        What is your favorite animal?
+        <input type="text" name="animal">
+        What is your favorite city?
+        <input type="text" name="city">
+        <input type="submit" value="Submit!">
+    </form>
+    """
 
 @app.route('/favorites_results')
 def favorites_results():
     """Shows the user a nice message using their form results."""
-    pass
+    favorite_color = request.args.get('color')
+    favorite_animal = request.args.get('animal')
+    favorite_city = request.args.get('city')
+    return f"Wow, I didn't know {favorite_color} {favorite_animal}s lived in {favorite_city}!"
 
 @app.route('/secret_message')
 def secret_message():
     """Shows the user a form to collect a secret message. Sends the result via
     the POST method to keep it a secret!"""
-    pass
+    return """
+    <form action="/message_results" method="POST">
+        Enter your secret message: <br/>
+        <input type="text" name="message"><br/>
+        <input type="submit" value="Submit!">
+    </form>
+    """
 
 @app.route('/message_results', methods=['POST'])
 def message_results():
     """Shows the user their message, with the letters in sorted order."""
-    pass
+    secret_message = request.form.get('message')
+    sorted_message = sort_letters(secret_message)
+    return f'Your secret message with letters sorted is: {sorted_message}'
 
 @app.route('/calculator')
 def calculator():
