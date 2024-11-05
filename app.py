@@ -70,7 +70,7 @@ def message_results():
     """Shows the user their message, with the letters in sorted order."""
     secret_message = request.form.get('message')
     sorted_message = sort_letters(secret_message)
-    return f'Your secret message with letters sorted is: {sorted_message}'
+    return f"Here's your secret message! {sorted_message}"
 
 @app.route('/calculator')
 def calculator():
